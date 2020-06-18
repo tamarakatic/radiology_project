@@ -1,0 +1,353 @@
+annotation,label
+Airspace Disease/lung/middle lobe/right/focal,F-2
+Surgical Instruments/mediastinum,0
+Deformity/thoracic vertebrae,F-4
+Emphysema,0
+"Fractures, Bone/clavicle/left/healed",0
+"Hernia, Hiatal",I-3
+Lung/hypoinflation,F-3
+Markings/bronchovascular/mild,0
+Opacity/lung/base/left/mild,F-3
+Diaphragm/left/obscured,0
+Thoracic Vertebrae/degenerative,0
+Lung/hypoinflation,F-3
+Pulmonary Atelectasis/base/left/mild,0
+"Hernia, Hiatal/small",I-2
+Lung/hyperdistention/mild,F-4
+Funnel Chest/mild,0
+Calcified Granuloma/lung/lingula,F-4
+"Pulmonary Disease, Chronic Obstructive",0
+Scoliosis/mild,0
+Lung/hypoinflation/mild,F-7
+Diaphragmatic Eventration,0
+Thickening/pleura/bilateral,F-6
+Opacity/lung/base/bilateral/streaky/mild,0
+Pulmonary Atelectasis/chronic,0
+Technical Quality of Image Unsatisfactory ,0
+Lung/hypoinflation,F-3
+Calcinosis/lung/hilum/lymph nodes/right,0
+Spinal Fusion/cervical vertebrae,0
+Pulmonary Atelectasis,0
+Cardiomegaly/mild,0
+Diaphragm/right/elevated,0
+Cicatrix/right/chronic,0
+Opacity/right,0
+No Indexing,0
+Cardiac Shadow/enlarged/moderate,0
+Opacity/lung/lower lobe/interstitial/diffuse/prominent,F-3
+Opacity/lung/hilum/interstitial/diffuse/prominent,F-3
+Consolidation/lung/base/bilateral,F-4
+Pleural Effusion/bilateral/small,0
+Atherosclerosis/aorta,0
+Lung/hypoinflation,F-1
+Spinal Fusion/thoracic vertebrae,0
+Granuloma/lung/apex/right,I-3
+Opacity/lung/left,0
+Pulmonary Atelectasis/lingula,0
+Spine/degenerative/diffuse,F-6
+Epicardial Fat,0
+Opacity/lung/base/left,0
+Markings/lung/interstitial/chronic,F-2
+Spine/degenerative,F-3
+Calcinosis/lung/right,0
+Granulomatous Disease,0
+Thoracic Vertebrae/degenerative/mild,0
+Density/lung/right,0
+Cardiomegaly/mild,F-1
+Surgical Instruments/mediastinum,0
+Cardiac Shadow/enlarged/borderline,0
+Calcinosis/mediastinum/lymph nodes,0
+Markings/right/paratracheal/prominent,0
+Emphysema,0
+Spondylosis/mild,F-6
+Opacity/lung/lower lobe/left/streaky,0
+Opacity/retrocardiac/streaky,0
+Lung/hyperdistention/mild,0
+Calcified Granuloma/lung/lingula/small,0
+Pulmonary Atelectasis/middle lobe,0
+Infiltrate/lung/middle lobe,I-3
+"Catheters, Indwelling/left",0
+Opacity/sulcus/posterior/mild,0
+Markings/sulcus/left,0
+Granuloma/lung,0
+Aorta/tortuous,F-4
+Calcinosis/aorta,0
+Osteophyte/thoracic vertebrae/multiple/small,0
+Cardiomegaly/moderate,I-1
+Diaphragmatic Eventration,0
+Density/heart,0
+Cardiomegaly/mild,I-2
+Calcified Granuloma/lung/upper lobe/left,F-2
+"Aorta, Thoracic/tortuous/mild",F-4
+Consolidation/lung,F-5
+"Bone Diseases, Metabolic",0
+Airspace Disease/lung,0
+Pulmonary Congestion/mild,0
+Thoracic Vertebrae/degenerative/mild,0
+Granulomatous Disease/chronic,F-6
+Cardiomegaly,0
+Aorta/tortuous,F-2
+Spine/degenerative,F-4
+Foreign Bodies/left,0
+Costophrenic Angle/blunted/mild,0
+Airspace Disease/lung/base/right,F-2
+Calcinosis/lung/hilum/lymph nodes,0
+Infiltrate/lung/base/right,I-1
+Pulmonary Atelectasis/base/right,0
+Pleural Effusion/bilateral,0
+Calcified Granuloma/lung/lower lobe/right,F-2
+Lung/hypoinflation/mild,0
+Opacity/lung/base/left/chronic/mild,0
+Pleural Effusion/left/small,0
+Technical Quality of Image Unsatisfactory ,0
+Aorta/tortuous,F-2
+Pleural Effusion/right/moderate,F-3
+Pleural Effusion/left/small,F-3
+Opacity/lung/bilateral/interstitial,0
+Nodule/lung/bilateral/interstitial,0
+Cardiac Shadow/enlarged/mild,0
+"Fractures, Bone/humerus/left",0
+Stents,0
+"Hernia, Hiatal/large",F-11
+Cardiomegaly,0
+Aorta/prominent,F-2
+Surgical Instruments/mediastinum/left,0
+Pleural Effusion/left/small,F-4
+Mediastinum/lymph nodes/enlarged,F-2
+Spine/degenerative/mild,F-4
+Lung/hyperdistention,0
+Cardiomegaly/mild,I-1
+Lung/hyperdistention,I-2
+Aorta/tortuous,F-2
+Lung/hypoinflation,F-3
+Thoracic Vertebrae/degenerative/moderate,0
+Calcinosis/lung/hilum/lymph nodes,0
+Medical Device/spine,0
+Thoracic Vertebrae/degenerative,0
+No Indexing,0
+Foreign Bodies/right,0
+Cardiomegaly,0
+Cardiomegaly/borderline,I-1
+Atherosclerosis/aorta,0
+Aorta/tortuous,F-2
+Cicatrix/lung/base/right/mild,0
+Pulmonary Atelectasis/base/right,0
+Costophrenic Angle/blunted,0
+"Tube, Inserted",F-2
+Lung/hypoinflation,F-4
+Pulmonary Atelectasis/base/bilateral,0
+Markings/bronchovascular,0
+Thoracic Vertebrae/degenerative/mild,0
+Cardiomegaly,0
+Pulmonary Congestion/upper lobe/mild,0
+"Hypertension, Pulmonary",F-2
+Diaphragmatic Eventration/right,0
+Atherosclerosis/aorta,I-1
+Cardiomegaly/mild,I-1
+Calcinosis/lung/hilum,0
+Nodule/lung/hilum,0
+Granulomatous Disease,0
+Pulmonary Congestion,0
+Pulmonary Edema/interstitial/diffuse,0
+Cardiomegaly,0
+Lung/hypoinflation,I-3
+Lung/hypoinflation,F-1
+Markings/bronchovascular,0
+Spondylosis/thoracic vertebrae,F-4
+Surgical Instruments,0
+"Catheters, Indwelling/right",0
+Lung/hypoinflation/mild,F-6
+Density/lung/lower lobe/left/patchy/small,F-6
+Density/lung/lower lobe/right/patchy,F-6
+Density/lung/middle lobe/right/patchy,F-6
+Pleural Effusion/right,F-7
+Pneumonia,0
+Opacity/lung/lower lobe/right,F-5
+Nodule/lung/lower lobe/right,0
+Pulmonary Congestion,0
+Pulmonary Edema/interstitial,0
+Surgical Instruments,0
+No Indexing,0
+Calcified Granuloma/lung/base/right/small,F-2
+"Catheters, Indwelling/right",0
+Opacity/lung/middle lobe/bilateral/focal/multiple,0
+Surgical Instruments/lung/hilum/right,0
+Sutures/lung/hilum/right,0
+Cardiomegaly,0
+"Catheters, Indwelling/right",0
+Stents/coronary vessels,F-3
+Calcinosis/lung/bilateral/round/small,0
+Granulomatous Disease,0
+Thoracic Vertebrae/degenerative,0
+Density/lung/bilateral/round/small,0
+Cardiomegaly,0
+Aorta/tortuous,F-1
+Lung/hypoinflation,F-2
+Markings/bronchovascular,0
+Thoracic Vertebrae/degenerative/mild,0
+Opacity/lung/base/left,F-7
+Diaphragm/left/elevated,0
+Thickening/pleura,F-12
+Pulmonary Atelectasis/base/left,0
+Airspace Disease/lung/base/left,I-5
+Nodule/lung/lower lobe/left/multiple,F-3
+Nodule/lung/hilum/right,F-3
+Nodule/lung/right/multiple,F-3
+Calcified Granuloma,0
+Spine/degenerative,F-5
+Calcinosis/lung/hilum/lymph nodes,0
+Calcified Granuloma/scattered,0
+Spine/degenerative,F-4
+No Indexing,0
+Diaphragm/right/elevated/mild,0
+Opacity/lung/lower lobe/bilateral/patchy,0
+Calcinosis/aorta,0
+Aorta/tortuous,F-5
+Scoliosis,0
+Arthritis,0
+"Pulmonary Disease, Chronic Obstructive",0
+Diaphragm/left/obscured,0
+Technical Quality of Image Unsatisfactory ,0
+Airspace Disease/lung/base/left,F-1
+Osteophyte/thoracic vertebrae/multiple,0
+Cardiomegaly,0
+Cardiac Shadow/enlarged,0
+Opacity/lung/interstitial,F-3
+Markings/lung/base/bilateral/interstitial,F-2
+Markings/lung/middle lobe/bilateral/interstitial,F-2
+Calcified Granuloma/lung/lower lobe/right,F-2
+"Bone Diseases, Metabolic",0
+Thoracic Vertebrae/degenerative/mild,0
+Cicatrix/thorax/left,0
+Volume Loss/lung/left,0
+Lung/right/hyperdistention,F-1
+Density/thorax/left,0
+Pleural Effusion/right/large,F-2
+Pulmonary Atelectasis/middle lobe/right,0
+Pulmonary Atelectasis/lower lobe/right,0
+Opacity/lung/right,0
+Lung/hyperdistention,0
+Diaphragm/right/elevated,0
+Density/costophrenic angle/right,I-2
+Aorta/tortuous,0
+Markings/bronchovascular/mild,0
+Deformity/clavicle,0
+Calcinosis/aorta,0
+"Fractures, Bone/shoulder/right",F-8
+Dislocations/shoulder/right,0
+"Bone Diseases, Metabolic",0
+Scoliosis,0
+Calcified Granuloma/lung/upper lobe/right,F-5
+Calcified Granuloma/lung/base/bilateral,0
+Dislocations/thoracic vertebrae,0
+Lung/hyperdistention/mild,0
+"Catheters, Indwelling/right",0
+Density/lung/lower lobe/bilateral/patchy,0
+Nodule/lung/lower lobe/bilateral/patchy,0
+Thickening/lung/upper lobe/bronchi/left/scattered,F-6
+Cystic Fibrosis,0
+Heart/left/obscured,F-2
+Cicatrix/lung/apex/right,0
+Spine/degenerative,F-5
+Calcified Granuloma/lung/upper lobe/right,0
+Lung/hypoinflation,F-1
+"Catheters, Indwelling/left",F-4
+Infiltrate/lung/left/interstitial,I-3
+Calcinosis/lung/hilum/lymph nodes/left,0
+Cardiomegaly,0
+Costophrenic Angle/right/blunted,0
+Cicatrix/pleura/right,0
+Granuloma/lung/upper lobe/left,F-5
+Kyphosis/thoracic vertebrae,F-6
+Osteophyte/thoracic vertebrae/anterior/multiple,F-6
+Aorta/tortuous,F-7
+Atherosclerosis/aorta,0
+Spondylosis/thoracic vertebrae,F-4
+Thoracic Vertebrae/degenerative/mild,0
+Granuloma/lung/upper lobe/left,F-4
+Costophrenic Angle/right/blunted/chronic,0
+Opacity/lung/lower lobe/right/diffuse,F-1
+Pneumonia/lower lobe/right,I-1
+Surgical Instruments/right,0
+Granulomatous Disease,0
+No Indexing,0
+Atherosclerosis/aorta/mild,0
+Lung/hypoinflation/mild,F-4
+Pulmonary Atelectasis/base/left/mild,0
+Cicatrix/lung/base/left/mild,0
+Cardiomegaly,0
+Pleural Effusion/right/small,F-2
+Lung/blood vessels/enlarged,0
+Pulmonary Congestion,0
+Lung/interstitial/prominent,0
+Pulmonary Edema/interstitial,0
+No Indexing,0
+Mediastinum/prominent,0
+Cardiomegaly/mild,I-5
+Pulmonary Atelectasis/base/left/mild,0
+Nodule/lung/middle lobe/right/multiple/small,0
+Nodule/lung/upper lobe/left/multiple/small,0
+Osteophyte/thoracic vertebrae/multiple,0
+Osteophyte/lumbar vertebrae/multiple,0
+Opacity/lung/base/left,F-2
+Cicatrix/lung/base/left,0
+"Aorta, Thoracic/tortuous/mild",F-3
+Spinal Fusion/cervical vertebrae/anterior,0
+Lung/hyperdistention,F-2
+Diaphragm/bilateral/flattened,F-1
+"Pulmonary Disease, Chronic Obstructive",0
+Kyphosis/thoracic vertebrae,F-5
+"Bone Diseases, Metabolic/thoracic vertebrae",0
+"Aorta, Thoracic/tortuous",F-3
+Thoracic Vertebrae/degenerative/moderate,0
+Cardiomegaly/mild,0
+Aorta/tortuous,F-2
+Thoracic Vertebrae/degenerative/mild,0
+Calcinosis/coronary vessels/left,0
+Atherosclerosis/aorta,0
+Arthritis/thoracic vertebrae/mild,0
+Arthritis/severe,0
+Cardiomegaly/mild,F-1
+Kyphosis/thoracic vertebrae/severe,F-4
+Lung/hypoinflation,F-1
+Opacity/lung/hilum/bilateral,0
+Scoliosis/thoracic vertebrae/right,0
+"Tube, Inserted/trachea",F-4
+Spine/degenerative,F-4
+Calcified Granuloma,0
+Spine/degenerative,F-5
+Aorta/tortuous,F-2
+Atherosclerosis/aorta,0
+Granuloma/lung/lower lobe/right,F-7
+Calcinosis/lung/hilum/lymph nodes/right,0
+Lung/hypoinflation,F-1
+Thoracic Vertebrae/degenerative/mild,0
+Surgical Instruments/abdomen/right,0
+Density/costophrenic angle/left/round/small,I-4
+Calcified Granuloma,0
+Lung/hypoinflation,F-3
+Technical Quality of Image Unsatisfactory ,0
+Opacity/lung/hilum/multiple/prominent/mild,0
+Markings/bronchovascular,0
+Consolidation/lung/upper lobe/left,0
+Consolidation/lung/lower lobe/bilateral,0
+Cardiomegaly/mild,0
+Pneumonia/focal/multiple,I-1
+Cardiomegaly/mild,F-1
+Surgical Instruments/abdomen/right,0
+Lung/hypoinflation,F-1
+Diaphragm/right/elevated,0
+Opacity/lung/base/right/patchy,0
+Calcinosis/aorta,0
+Granuloma/thorax/multiple,0
+Costophrenic Angle/bilateral/blunted,0
+Thoracic Vertebrae/degenerative,0
+Airspace Disease/lung/lower lobe/right,I-1
+Mass/thorax/multiple,0
+Thoracic Vertebrae/scattered/degenerative,0
+Aorta/tortuous,F-4
+Markings/lung/interstitial/chronic,F-5
+Opacity/lung/base/left,F-6
+Airspace Disease/lung/base/left,I-1
+Opacity/ribs/left/anterior/round,F-4
+Scoliosis/thoracic vertebrae/right/moderate,0

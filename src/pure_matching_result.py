@@ -59,14 +59,14 @@ if __name__ == '__main__':
     text_openi_file_v2 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_v2/") 
     machine_lab_v2 = find_annotations(text_openi_file_v2, "ANNOTATION WITH SENTENCE WITH LABELS", "pure_matching_v2")
 
-    human_labeled_file = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/label_100_reports/")
+    human_labeled_file = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/label_132_reports/")
     human_lab = find_annotations(human_labeled_file, "ANNOTATION WITH SENTENCE LABEL", "human_labels")
 
     print("\n ----------- PURE MATCHING ----------- ")  
     print("\n Version 1 (Heading): ")
     print_results(human_lab, machine_lab_v1)
 
-    print("\n Version 2 (Heading + Subheadings): ")
+    print("\n Version 2 (Heading + Subheadings based on Impact factor): ")
     print_results(human_lab, machine_lab_v2)
 
     fastText_v1 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_fastText_v1/") 
@@ -79,5 +79,5 @@ if __name__ == '__main__':
     fastText_v2 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_fastText_v2/") 
     machine_lab_fastText_v2 = find_annotations(fastText_v2, "ANNOTATION WITH SENTENCE WITH LABELS", "fastText_v2")
    
-    print("\n Version 2 (Heading + Subheadings): ")
+    print("\n Version 2 (Heading + Subheadings based on Impact factor): ")
     print_results(human_lab, machine_lab_fastText_v2)

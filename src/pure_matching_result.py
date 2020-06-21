@@ -38,9 +38,9 @@ def find_annotations(openI_files, annotation, file_name):
 
 def print_results(human_labels, machine_labels):
     acc = accuracy_score(human_labels, machine_labels)
-    f1 = f1_score(human_labels, machine_labels, average='macro', labels=np.unique(machine_labels))
-    precision = precision_score(human_labels, machine_labels, average='macro', labels=np.unique(machine_labels))
-    recall = recall_score(human_labels, machine_labels, average='macro', labels=np.unique(machine_labels))
+    f1 = f1_score(human_labels, machine_labels, average='weighted', labels=np.unique(machine_labels))
+    precision = precision_score(human_labels, machine_labels, average='weighted', labels=np.unique(machine_labels))
+    recall = recall_score(human_labels, machine_labels, average='weighted', labels=np.unique(machine_labels))
 
     print(f"\tAccuracy: {acc:.4f}")
     print(f"\tF1 score: {f1:.4f}")
@@ -56,11 +56,17 @@ if __name__ == '__main__':
     text_openi_file_v1 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_v1/") 
     machine_lab_v1 = find_annotations(text_openi_file_v1, "ANNOTATION WITH SENTENCE WITH LABELS", "pure_matching_v1")
 
+    baseline_file = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_baseline/") 
+    machine_lab_baseline = find_annotations(baseline_file, "ANNOTATION WITH SENTENCE WITH LABELS", "baseline")
+
     text_openi_file_v2 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_v2/") 
     machine_lab_v2 = find_annotations(text_openi_file_v2, "ANNOTATION WITH SENTENCE WITH LABELS", "pure_matching_v2")
 
     human_labeled_file = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/label_132_reports/")
     human_lab = find_annotations(human_labeled_file, "ANNOTATION WITH SENTENCE LABEL", "human_labels")
+
+    print("\n ----------- BASELINE ----------- ")
+    print_results(human_lab, machine_lab_baseline) 
 
     print("\n ----------- PURE MATCHING ----------- ")  
     print("\n Version 1 (Heading): ")

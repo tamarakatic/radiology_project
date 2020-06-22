@@ -38,8 +38,8 @@ def check_synonyms(annotation, sentence):
         two_synonyms = value.split('/')
         if two_synonyms[0] in sentence or two_synonyms[1] in sentence:
             return True
-        check_splitted_words(two_synonyms[0], sentence) # if there are two words before '/'
-        check_splitted_words(two_synonyms[1], sentence) # if there are two words after '/'
+        check_splitted_words(two_synonyms[0], sentence) # if there are two words not connected before '/'
+        check_splitted_words(two_synonyms[1], sentence) # if there are two words not connected after '/' 
     elif value in sentence: # if it is one word
         return True
     elif annotation in sentence:

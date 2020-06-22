@@ -24,25 +24,25 @@ def find_word(search, text):
 
 
 def write_matching_to_file(matching, nextLine, fp, code, impression_finding_sentences):
-    if len(matching) >= 1:
+    if len(matching) == 1:
             print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
-    # elif len(matching) > 1:
-    #     if code[1:]:    # if code has subheadings
-    #         high_influence = defaultdict(int)
-    #         for sub_key in matching:
-    #             high_influence[sub_key] = 0
-    #             for anot in code[1:]:
-    #                 if is_in_synonyms(anot.lower()):
-    #                     if check_synonyms(anot.lower(), impression_finding_sentences[sub_key].lower()):
-    #                         high_influence[sub_key] += 1
-    #                 else:
-    #                     if find_word(anot.lower(), impression_finding_sentences[sub_key].lower()):
-    #                         high_influence[sub_key] += 1
+    elif len(matching) > 1:
+        if code[1:]:    # if code has subheadings
+            high_influence = defaultdict(int)
+            for sub_key in matching:
+                high_influence[sub_key] = 0
+                for anot in code[1:]:
+                    if is_in_synonyms(anot.lower()):
+                        if check_synonyms(anot.lower(), impression_finding_sentences[sub_key].lower()):
+                            high_influence[sub_key] += 1
+                    else:
+                        if find_word(anot.lower(), impression_finding_sentences[sub_key].lower()):
+                            high_influence[sub_key] += 1
 
-    #         max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
-    #         print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)        
-    #     else:   # choose first key as there are no subheadings
-    #         print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
+            max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
+            print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)        
+        else:   # choose first key as there are no subheadings
+            print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
 
     else:
         print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
@@ -72,7 +72,7 @@ def find_annotations(openI_files):
                         print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
                         for key in list(impression_finding_sentences):
                             value = impression_finding_sentences[key]
-                            if not_annotate_sentence(value):
+                            if not_annotate_sentence(value):    # delete findings/impression sentences if they have some of those 'NOT_ANNOTATED' words
                                 del impression_finding_sentences[key]
 
                         for nextLine in searchlines[i+1:]:

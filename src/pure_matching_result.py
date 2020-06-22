@@ -8,6 +8,8 @@ from sklearn.metrics import accuracy_score, f1_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import confusion_matrix
 
+import warnings
+warnings.filterwarnings('ignore')
 
 def find_annotations(openI_files, annotation, file_name):
     results = defaultdict(list)
@@ -74,6 +76,17 @@ if __name__ == '__main__':
 
     print("\n Version 2 (Heading + Subheadings based on Impact factor): ")
     print_results(human_lab, machine_lab_v2)
+
+    print("\n ----------- RULE BASED ----------- ")
+    print("\n Version 1 (Heading): ")
+    rule_based_v1 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_pattern_matching_v1/") 
+    machine_lab_rule_based_v1 = find_annotations(rule_based_v1, "ANNOTATION WITH SENTENCE WITH LABELS", "rule_based_v1")
+    print_results(human_lab, machine_lab_rule_based_v1)
+
+    print("\n Version 2 (Heading + Subheadings based on Impact factor): ")
+    rule_based_v2 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_pattern_matching_v2/") 
+    machine_lab_rule_based_v2 = find_annotations(rule_based_v2, "ANNOTATION WITH SENTENCE WITH LABELS", "rule_based_v2")
+    print_results(human_lab, machine_lab_rule_based_v2)
 
     fastText_v1 = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_fastText_v1/") 
     machine_lab_fastText_v1 = find_annotations(fastText_v1, "ANNOTATION WITH SENTENCE WITH LABELS", "fastText_v1")

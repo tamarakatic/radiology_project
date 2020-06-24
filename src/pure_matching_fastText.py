@@ -10,7 +10,10 @@ from data.rule_based_matching import not_annotate_sentence
 from data.rule_based_matching import zero_annotation 
 from data.rule_based_matching import check_synonyms
 from data.rule_based_matching import is_in_synonyms
-from data.definition import FASTTEXT_RADIOLOGY
+from data.definition import FASTTEXT_RADIOLOGY_UNIGAM
+from data.definition import FASTTEXT_RADIOLOGY_BIGRAM
+from data.definition import FASTTEXT_RADIOLOGY_TRIGRAM
+from data.definition import FASTTEXT_MATCHING_V2
 
 
 def get_related_terms(word2vec, token, topn=5):
@@ -21,6 +24,10 @@ def get_related_terms(word2vec, token, topn=5):
     for word, _ in word2vec.wv.most_similar(token, topn=topn):
         if len(word.split('_')) > 1:
             word = ' '.join(word.split('_'))
+        if len(word.split('/')) > 1:
+           for subword in word.split('/'):
+                if subword:
+                    similar_words.append(subword) 
         similar_words.append(word)
 
     return similar_words
@@ -35,7 +42,7 @@ def find_word(search, text):
 
 def find_annotations(openI_files):
 
-    fastText = FastText.load(FASTTEXT_RADIOLOGY)
+    fastText = FastText.load(FASTTEXT_RADIOLOGY_BIGRAM)
     fastText.wv.init_sims()
 
     for filename in sorted(os.listdir(openI_files), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
@@ -57,7 +64,7 @@ def find_annotations(openI_files):
                                 sentences[key] = value
                     
                     if "ANNOTATION WITH SENTENCE LABEL" in line.rstrip('\n'):
-                        # print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
+                        print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
                         for key in list(sentences):
                             value = sentences[key]
                             if not_annotate_sentence(value):    # delete findings/impression sentences if they have some of those 'NOT_ANNOTATED' words
@@ -76,7 +83,7 @@ def find_annotations(openI_files):
                                 matching = []
                                 synonyms = None
                                 if zero_annotation(disease.lower()):
-                                    # print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
+                                    print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
                                     continue
                                     
                                 if ', ' in disease:  # if string has synonyms
@@ -90,21 +97,18 @@ def find_annotations(openI_files):
                                             if len(dis.split()) > 1: # if disease before or after comma has more than 1 word
                                                 dis = '_'.join(dis.lower().split())
                                             similar_words += get_related_terms(fastText, dis)
-                                            import pdb; pdb.set_trace()
                                         
                                     else:
                                         merge_lower_sent = '_'.join(disease.lower().split())
                                         similar_words = get_related_terms(fastText, merge_lower_sent)
-                                        import pdb; pdb.set_trace()
                                         similar_words.append(disease.lower())
 
                                 else:
                                     similar_words = get_related_terms(fastText, disease.lower())
-                                    import pdb; pdb.set_trace()
                                     similar_words.append(disease.lower())
 
                                 if similar_words: # if there are duplicates get unique fastText words
-                                    similar_words = set(similar_words)           
+                                    similar_words = list(set(similar_words))           
                                 
                                 if similar_words: 
                                     for sim_word in similar_words:
@@ -137,8 +141,7 @@ def find_annotations(openI_files):
                             
                                 try:
                                     if len(matching) == 1:
-                                        # print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
-                                        pass
+                                        print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
                                     elif len(matching) > 1:
                                         if code[1:]:    # if code has subheadings
                                             high_influence = defaultdict(int)
@@ -161,20 +164,14 @@ def find_annotations(openI_files):
                                                                 high_influence[sub_key] += 1
 
                                             max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
-                                            # print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)
+                                            print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)
                                                         
                                         else:   # choose first key as there are no subheadings
-                                            # print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
-                                            pass
+                                            print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
                                     else:
-                                        # print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
-                                        pass
+                                        print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
                                 except IndexError:
                                     import pdb; pdb.set_trace()
 
 if __name__ == '__main__':
-    current_filepath = os.path.dirname(os.path.abspath(__file__))
-    root_path = os.path.abspath(os.path.join(current_filepath, os.pardir))
-    text_openi_files = os.path.join(root_path, "/home/tamara/Documents/research/radiology_project/radiology_project/data/test/") 
-
-    find_annotations(text_openi_files)
+    find_annotations(FASTTEXT_MATCHING_V2)

@@ -10,6 +10,7 @@ from data.rule_based_matching import not_annotate_sentence
 from data.rule_based_matching import zero_annotation 
 from data.rule_based_matching import check_synonyms
 from data.rule_based_matching import is_in_synonyms
+from data.definition import TEST
 
 sample_weights = []
 
@@ -73,10 +74,11 @@ def find_annotations(openI_files):
                             impression_finding_sentences[key] = value
 
                 if "ANNOTATION WITH SENTENCE LABEL" in line.rstrip('\n'):
-                    # print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
+                    print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
                     for key in list(impression_finding_sentences):
                         value = impression_finding_sentences[key]
-                        if not_annotate_sentence(value):    # delete findings/impression sentences if they have some of those 'NOT_ANNOTATED' words
+                        # delete findings/impression sentences if they have some of those 'NOT_ANNOTATED' words
+                        if not_annotate_sentence(value):
                             del impression_finding_sentences[key]
 
                     for nextLine in searchlines[i+1:]:
@@ -87,7 +89,7 @@ def find_annotations(openI_files):
                             disease = code[0].rstrip('\n')
                             if zero_annotation(disease.lower()):
                                 sample_weights.append(3)
-                                # print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
+                                print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
                                 continue
                             elif is_in_synonyms(disease.lower()):
                                 for key, sent in impression_finding_sentences.items():
@@ -106,14 +108,5 @@ def find_annotations(openI_files):
                                 matching = [key for key, sent in impression_finding_sentences.items() if find_word(disease.lower(), sent.lower())]
                                 write_matching_to_file(matching, nextLine, fp, code, impression_finding_sentences, sample_weights)
 
-    with open("/home/martin/Documents/radiology_project/radiology_project/src/sample_weights_v1.txt", 'a') as f:
-        for sw in sample_weights:
-            print(sw, file=f)
-
-
 if __name__ == '__main__':
-    current_filepath = os.path.dirname(os.path.abspath(__file__))
-    root_path = os.path.abspath(os.path.join(current_filepath, os.pardir))
-    text_openi_files = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test/") 
-
-    find_annotations(text_openi_files)
+    find_annotations(TEST)

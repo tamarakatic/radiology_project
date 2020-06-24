@@ -5,6 +5,8 @@ from collections import defaultdict
 from collections import Counter
 from typing import Dict
 
+from data.definition import TRAIN
+
 def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
 
@@ -67,8 +69,4 @@ def find_annotations(openI_files):
                                     print("{}".format(nextLine.rstrip('\n')), file=fp)
 
 if __name__ == '__main__':
-    current_filepath = os.path.dirname(os.path.abspath(__file__))
-    root_path = os.path.abspath(os.path.join(current_filepath, os.pardir))
-    text_openi_files = os.path.join(root_path, "/Users/tamarakatic/Desktop/radiology/openI_data/openITest_Train/train/") 
-
-    find_annotations(text_openi_files)
+    find_annotations(TRAIN)

@@ -8,6 +8,8 @@ from collections import defaultdict
 from collections import Counter
 from typing import Dict
 
+from data.definition import BASELINE
+
 
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
@@ -48,8 +50,4 @@ def find_annotations(openI_files):
                                 print("{} {}".format(nextLine.rstrip('\n'), random_sent), file=fp)
 
 if __name__ == '__main__':
-    current_filepath = os.path.dirname(os.path.abspath(__file__))
-    root_path = os.path.abspath(os.path.join(current_filepath, os.pardir))
-    text_openi_files = os.path.join(root_path, "/home/martin/Documents/radiology_project/radiology_project/data/openITest_Train/test_baseline/") 
-
-    find_annotations(text_openi_files)
+    find_annotations(BASELINE)

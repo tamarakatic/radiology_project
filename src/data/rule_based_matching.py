@@ -40,7 +40,6 @@ def check_synonyms(annotation, sentence):
             return True
         check_splitted_words(two_synonyms[0], sentence) # if there are two words not connected before '/'
         check_splitted_words(two_synonyms[1], sentence) # if there are two words not connected after '/' 
-        check_splitted_words(two_synonyms[2], sentence)
     elif value in sentence: # if it is one word
         return True
     elif annotation in sentence:

@@ -21,7 +21,7 @@ SYNONYMS = {
         "multiple": "bilateral",
         "mild": "minimal",
         "abdomen": "upper quadrant",
-        "surgical instruments": "clips/surgical clips/valve replacement",
+        "surgical instruments": "surgical clips/valve replacement",
         "bone diseases, metabolic": "osteopenic",
         "foreign bodies": "nipple ring",
         "hilum": "hilar",

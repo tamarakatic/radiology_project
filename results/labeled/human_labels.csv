@@ -21,14 +21,14 @@ filename,annotation,label
 303.txt,Lung/hypoinflation/mild,F-4
 303.txt,Diaphragmatic Eventration,F-5
 303.txt,Thickening/pleura/bilateral,F-6
-303.txt,Opacity/lung/base/bilateral/streaky/mild,I-1
+303.txt,Opacity/lung/base/bilateral/streaky/mild,F-7
 303.txt,Pulmonary Atelectasis/chronic,F-7
 304.txt,Technical Quality of Image Unsatisfactory,0
 304.txt,Lung/hypoinflation,F-3
 304.txt,Calcinosis/lung/hilum/lymph nodes/right,F-6
 304.txt,Spinal Fusion/cervical vertebrae,F-7
 304.txt,Pulmonary Atelectasis,F-4
-305.txt,Cardiomegaly/mild,F-4
+305.txt,Cardiomegaly/mild,F-1
 308.txt,Diaphragm/right/elevated,F-2
 308.txt,Cicatrix/right/chronic,I-1
 308.txt,Opacity/right,F-1
@@ -48,7 +48,7 @@ filename,annotation,label
 321.txt,Epicardial Fat,F-2
 321.txt,Opacity/lung/base/left,F-2
 322.txt,Markings/lung/interstitial/chronic,F-2
-322.txt,Spine/degenerative,F-3
+322.txt,Spine/degenerative,F-4
 323.txt,Calcinosis/lung/right,F-3
 323.txt,Granulomatous Disease,F-3
 323.txt,Thoracic Vertebrae/degenerative/mild,F-7
@@ -149,8 +149,8 @@ filename,annotation,label
 671.txt,Granulomatous Disease,F-3
 672.txt,Pulmonary Congestion,I-1
 672.txt,Pulmonary Edema/interstitial/diffuse,I-1
-672.txt,Cardiomegaly,I-3
-672.txt,Lung/hypoinflation,I-4
+672.txt,Cardiomegaly,I-2
+672.txt,Lung/hypoinflation,I-3
 674.txt,Lung/hypoinflation,F-1
 674.txt,Markings/bronchovascular,F-2
 675.txt,Spondylosis/thoracic vertebrae,F-4
@@ -208,7 +208,7 @@ filename,annotation,label
 695.txt,"Pulmonary Disease, Chronic Obstructive",I-1
 697.txt,Diaphragm/left/obscured,F-1
 697.txt,Technical Quality of Image Unsatisfactory,0
-697.txt,Airspace Disease/lung/base/left,I-1
+697.txt,Airspace Disease/lung/base/left,F-1
 698.txt,Osteophyte/thoracic vertebrae/multiple,F-3
 699.txt,Cardiomegaly,I-1
 699.txt,Cardiac Shadow/enlarged,F-1
@@ -276,7 +276,7 @@ filename,annotation,label
 3748.txt,Pulmonary Atelectasis/base/left/mild,F-2
 3748.txt,Cicatrix/lung/base/left/mild,F-2
 3750.txt,Cardiomegaly,F-1
-3750.txt,Pleural Effusion/right/small,F-2
+3750.txt,Pleural Effusion/right/small,I-1
 3750.txt,Lung/blood vessels/enlarged,F-3
 3750.txt,Pulmonary Congestion,I-1
 3750.txt,Lung/interstitial/prominent,F-4

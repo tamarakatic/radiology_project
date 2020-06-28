@@ -14,7 +14,7 @@ from data.definition import TEST
 
 sample_weights = []
 
-# to find exact word without s or ing...
+# to find exact word without extension
 def find_word(search, text):
    result = re.findall('\\b'+search+'\\b', text, flags=re.IGNORECASE)
    if len(result)>0:

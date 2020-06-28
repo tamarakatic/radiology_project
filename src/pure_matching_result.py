@@ -11,7 +11,7 @@ from data.definition import BASELINE, HUMAN_LABELS
 from data.definition import TEST_V1_PATTERN_MATCHING, TEST_V2_PATTERN_MATCHING
 from data.definition import FASTTEXT_V1, FASTTEXT_V2
 from data.definition import FASTTEXT_V1_PATTERN_MATCHING, FASTTEXT_V2_PATTERN_MATCHING
-from data.definition import RESULTS
+from data.definition import RESULTS, TEST
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -48,8 +48,8 @@ def find_annotations(openI_files, annotation, file_name):
                                 labels.append(key)
                             except IndexError:
                                 import pdb; pdb.set_trace()
-    df = pd.DataFrame(results)
-    df.to_csv(RESULTS+"labeled/{}.csv".format(file_name), index=False)
+    # df = pd.DataFrame(results)
+    # df.to_csv(RESULTS+"labeled/{}.csv".format(file_name), index=False)
     return labels
 
 

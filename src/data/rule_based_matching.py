@@ -1,13 +1,19 @@
+import re
 from collections import defaultdict
 from .patterns import NOT_ANNOTATED
 from .patterns import NOT_FOUND
 from .patterns import SYNONYMS
 
+
 # do not annotate sentence
 def not_annotate_sentence(sentence):
-    for word in sentence.rstrip().rstrip('.').lower().split():
-        if word in NOT_ANNOTATED:
-            return True
+    for word in NOT_ANNOTATED:
+        if len(word.split()) > 1:
+            if word in sentence.lower():
+                return True
+        else:
+            if re.search(r'\b' + word + r'\b', sentence.lower()):
+                return True
     return False
     
 # if it is true label as 0 at the begining 
@@ -32,18 +38,40 @@ def is_in_synonyms(annotation):
         return True
     return False
 
-def check_synonyms(annotation, sentence): 
+def check_synonyms(annotation, sentence):
     value = SYNONYMS[annotation]
     if '/' in value:
-        two_synonyms = value.split('/')
-        if two_synonyms[0] in sentence or two_synonyms[1] in sentence:
-            return True
-        check_splitted_words(two_synonyms[0], sentence) # if there are two words not connected before '/'
-        check_splitted_words(two_synonyms[1], sentence) # if there are two words not connected after '/' 
+        more_synonyms = value.split('/')
+        for syn in more_synonyms:
+            if syn in sentence:
+                return True
+            if check_splitted_words(syn, sentence): # if there are two words not connected before/after '/'
+                return True
     elif value in sentence: # if it is one word
         return True
     elif annotation in sentence:
         return True
-    else:
-        check_splitted_words(value, sentence)
+    else: 
+        if check_splitted_words(value, sentence):
+            return True
+                
+    return False
+
+def is_sub_word_in_synonyms(annotation):
+    if len(annotation.split()) > 1:
+        for word in annotation.split():
+            if word in SYNONYMS:
+                return True
+    return False
+
+def check_splitted_annotation(annotation, sentence):
+    if len(annotation.split()) > 1:
+        count_words = 0
+        for word in annotation.split():
+            if is_sub_word_in_synonyms(word):
+                value = SYNONYMS[word]
+                if value in sentence:
+                    count_words += 1
+        if count_words == len(annotation.split()):
+            return True
     return False

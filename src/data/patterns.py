@@ -56,5 +56,6 @@ SYNONYMS = {
         "mediastinum": "mediastinal",
         "arthritis": "arthritic",
         "lymph nodes": "adenopathy",
-        "granulomatous disease": "granulomatous infection" 
+        "granulomatous disease": "granulomatous infection",
+        "pulmonary congestion": "edema"
     }

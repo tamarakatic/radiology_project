@@ -76,7 +76,7 @@ filename,annotation,label
 340.txt,Cardiomegaly/moderate,F-1
 340.txt,Diaphragmatic Eventration,F-3
 340.txt,Density/heart,F-2
-342.txt,Cardiomegaly/mild,I-2
+342.txt,Cardiomegaly/mild,F-3
 342.txt,Calcified Granuloma/lung/upper lobe/left,F-2
 342.txt,"Aorta, Thoracic/tortuous/mild",F-4
 343.txt,Consolidation/lung,F-5
@@ -249,7 +249,7 @@ filename,annotation,label
 713.txt,Heart/left/obscured,F-7
 714.txt,Cicatrix/lung/apex/right,F-1
 714.txt,Spine/degenerative,F-5
-3725.txt,Calcified Granuloma/lung/upper lobe/right,0
+3725.txt,Calcified Granuloma/lung/upper lobe/right,F-2
 3727.txt,Lung/hypoinflation,F-1
 3727.txt,"Catheters, Indwelling/left",F-4
 3730.txt,Infiltrate/lung/left/interstitial,I-3

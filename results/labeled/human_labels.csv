@@ -76,7 +76,7 @@ filename,annotation,label
 340.txt,Cardiomegaly/moderate,F-1
 340.txt,Diaphragmatic Eventration,F-3
 340.txt,Density/heart,F-2
-342.txt,Cardiomegaly/mild,I-2
+342.txt,Cardiomegaly/mild,F-3
 342.txt,Calcified Granuloma/lung/upper lobe/left,F-2
 342.txt,"Aorta, Thoracic/tortuous/mild",F-4
 343.txt,Consolidation/lung,F-5

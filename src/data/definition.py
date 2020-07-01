@@ -34,3 +34,12 @@ FASTTEXT_V2_PATTERN_MATCHING = os.path.join(ROOT_PATH, 'data/openITest_Train/tes
 RESULTS = os.path.join(ROOT_PATH, 'results/')
 TEST = os.path.join(ROOT_PATH, 'data/openITest_Train/test/')
 TRAIN = os.path.join(ROOT_PATH, 'data/openITest_Train/train/')
+
+ALL_LABELED_REPORTS = os.path.join(ROOT_PATH, 'data/openITest_Train/all_reports_labeled/')
+ALL_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/all_reports_labeled.jsonl')
+
+UPDATED_ALL_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/updated_all_reports_labeled.jsonl')
+
+TEST_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/summarization/test.jsonl')
+TRAIN_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/summarization/train.jsonl')
+DEV_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/summarization/dev.jsonl')

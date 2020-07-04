@@ -1,37 +1,37 @@
 filename,annotation,label
 292.txt,Airspace Disease/lung/middle lobe/right/focal,I-1
-293.txt,Surgical Instruments/mediastinum,0
+293.txt,Surgical Instruments/mediastinum,F-1
 293.txt,Deformity/thoracic vertebrae,F-4
-294.txt,Emphysema,0
+294.txt,Emphysema,I-1
 295.txt,"Fractures, Bone/clavicle/left/healed",0
 296.txt,"Hernia, Hiatal",I-3
-297.txt,Lung/hypoinflation,I-1
+297.txt,Lung/hypoinflation,F-2
 297.txt,Markings/bronchovascular/mild,F-2
 297.txt,Opacity/lung/base/left/mild,F-3
-297.txt,Diaphragm/left/obscured,0
+297.txt,Diaphragm/left/obscured,F-4
 297.txt,Thoracic Vertebrae/degenerative,F-8
-297.txt,Lung/hypoinflation,I-1
+297.txt,Lung/hypoinflation,F-2
 297.txt,Pulmonary Atelectasis/base/left/mild,0
 299.txt,"Hernia, Hiatal/small",F-4
-300.txt,Lung/hyperdistention/mild,0
-300.txt,Funnel Chest/mild,0
-300.txt,Calcified Granuloma/lung/lingula,0
+300.txt,Lung/hyperdistention/mild,F-2
+300.txt,Funnel Chest/mild,F-3
+300.txt,Calcified Granuloma/lung/lingula,F-4
 300.txt,"Pulmonary Disease, Chronic Obstructive",0
-302.txt,Scoliosis/mild,0
-303.txt,Lung/hypoinflation/mild,F-7
-303.txt,Diaphragmatic Eventration,0
+302.txt,Scoliosis/mild,F-4
+303.txt,Lung/hypoinflation/mild,F-4
+303.txt,Diaphragmatic Eventration,F-5
 303.txt,Thickening/pleura/bilateral,F-6
-303.txt,Opacity/lung/base/bilateral/streaky/mild,0
+303.txt,Opacity/lung/base/bilateral/streaky/mild,I-1
 303.txt,Pulmonary Atelectasis/chronic,0
 304.txt,Technical Quality of Image Unsatisfactory ,0
-304.txt,Lung/hypoinflation,0
-304.txt,Calcinosis/lung/hilum/lymph nodes/right,0
+304.txt,Lung/hypoinflation,F-3
+304.txt,Calcinosis/lung/hilum/lymph nodes/right,F-6
 304.txt,Spinal Fusion/cervical vertebrae,0
 304.txt,Pulmonary Atelectasis,0
-305.txt,Cardiomegaly/mild,0
-308.txt,Diaphragm/right/elevated,0
-308.txt,Cicatrix/right/chronic,0
-308.txt,Opacity/right,0
+305.txt,Cardiomegaly/mild,F-1
+308.txt,Diaphragm/right/elevated,F-2
+308.txt,Cicatrix/right/chronic,I-1
+308.txt,Opacity/right,F-1
 312.txt,No Indexing,0
 313.txt,Cardiac Shadow/enlarged/moderate,0
 313.txt,Opacity/lung/lower lobe/interstitial/diffuse/prominent,F-3
@@ -41,48 +41,48 @@ filename,annotation,label
 313.txt,Atherosclerosis/aorta,F-7
 314.txt,Lung/hypoinflation,F-1
 315.txt,Spinal Fusion/thoracic vertebrae,0
-316.txt,Granuloma/lung/apex/right,0
-321.txt,Opacity/lung/left,0
+316.txt,Granuloma/lung/apex/right,I-3
+321.txt,Opacity/lung/left,F-1
 321.txt,Pulmonary Atelectasis/lingula,0
 321.txt,Spine/degenerative/diffuse,F-6
 321.txt,Epicardial Fat,F-2
-321.txt,Opacity/lung/base/left,0
-322.txt,Markings/lung/interstitial/chronic,F-2
-322.txt,Spine/degenerative,F-3
-323.txt,Calcinosis/lung/right,0
-323.txt,Granulomatous Disease,0
+321.txt,Opacity/lung/base/left,F-2
+322.txt,Markings/lung/interstitial/chronic,0
+322.txt,Spine/degenerative,F-4
+323.txt,Calcinosis/lung/right,F-3
+323.txt,Granulomatous Disease,F-3
 323.txt,Thoracic Vertebrae/degenerative/mild,F-7
-323.txt,Density/lung/right,0
+323.txt,Density/lung/right,F-3
 327.txt,Cardiomegaly/mild,0
-327.txt,Surgical Instruments/mediastinum,0
-329.txt,Cardiac Shadow/enlarged/borderline,0
-329.txt,Calcinosis/mediastinum/lymph nodes,0
-329.txt,Markings/right/paratracheal/prominent,0
+327.txt,Surgical Instruments/mediastinum,F-2
+329.txt,Cardiac Shadow/enlarged/borderline,F-1
+329.txt,Calcinosis/mediastinum/lymph nodes,F-2
+329.txt,Markings/right/paratracheal/prominent,F-3
 329.txt,Emphysema,F-4
 329.txt,Spondylosis/mild,F-6
-332.txt,Opacity/lung/lower lobe/left/streaky,0
-332.txt,Opacity/retrocardiac/streaky,0
-333.txt,Lung/hyperdistention/mild,0
+332.txt,Opacity/lung/lower lobe/left/streaky,F-1
+332.txt,Opacity/retrocardiac/streaky,F-1
+333.txt,Lung/hyperdistention/mild,F-2
 334.txt,Calcified Granuloma/lung/lingula/small,0
 334.txt,Pulmonary Atelectasis/middle lobe,0
 334.txt,Infiltrate/lung/middle lobe,I-3
 335.txt,"Catheters, Indwelling/left",0
-337.txt,Opacity/sulcus/posterior/mild,0
-337.txt,Markings/sulcus/left,0
+337.txt,Opacity/sulcus/posterior/mild,F-1
+337.txt,Markings/sulcus/left,F-2
 337.txt,Granuloma/lung,0
-337.txt,Aorta/tortuous,0
-337.txt,Calcinosis/aorta,0
+337.txt,Aorta/tortuous,F-5
+337.txt,Calcinosis/aorta,F-5
 337.txt,Osteophyte/thoracic vertebrae/multiple/small,0
-340.txt,Cardiomegaly/moderate,0
-340.txt,Diaphragmatic Eventration,0
-340.txt,Density/heart,0
-342.txt,Cardiomegaly/mild,0
-342.txt,Calcified Granuloma/lung/upper lobe/left,0
+340.txt,Cardiomegaly/moderate,F-1
+340.txt,Diaphragmatic Eventration,F-3
+340.txt,Density/heart,F-2
+342.txt,Cardiomegaly/mild,F-3
+342.txt,Calcified Granuloma/lung/upper lobe/left,F-2
 342.txt,"Aorta, Thoracic/tortuous/mild",F-4
 343.txt,Consolidation/lung,F-5
 343.txt,"Bone Diseases, Metabolic",F-6
-343.txt,Airspace Disease/lung,0
-343.txt,Pulmonary Congestion/mild,0
+343.txt,Airspace Disease/lung,F-5
+343.txt,Pulmonary Congestion/mild,I-1
 347.txt,Thoracic Vertebrae/degenerative/mild,F-5
 347.txt,Granulomatous Disease/chronic,F-6
 349.txt,Cardiomegaly,F-1
@@ -91,43 +91,43 @@ filename,annotation,label
 646.txt,Foreign Bodies/left,F-6
 647.txt,Costophrenic Angle/blunted/mild,0
 647.txt,Airspace Disease/lung/base/right,F-2
-647.txt,Calcinosis/lung/hilum/lymph nodes,0
+647.txt,Calcinosis/lung/hilum/lymph nodes,F-6
 647.txt,Infiltrate/lung/base/right,I-1
 647.txt,Pulmonary Atelectasis/base/right,0
 647.txt,Pleural Effusion/bilateral,I-1
 648.txt,Calcified Granuloma/lung/lower lobe/right,F-2
-648.txt,Lung/hypoinflation/mild,0
-649.txt,Opacity/lung/base/left/chronic/mild,0
+648.txt,Lung/hypoinflation/mild,F-3
+649.txt,Opacity/lung/base/left/chronic/mild,F-6
 649.txt,Pleural Effusion/left/small,F-6
 650.txt,Technical Quality of Image Unsatisfactory ,0
 650.txt,Aorta/tortuous,F-2
 650.txt,Pleural Effusion/right/moderate,F-3
 650.txt,Pleural Effusion/left/small,F-3
-650.txt,Opacity/lung/bilateral/interstitial,0
-650.txt,Nodule/lung/bilateral/interstitial,0
-650.txt,Cardiac Shadow/enlarged/mild,0
+650.txt,Opacity/lung/bilateral/interstitial,F-5
+650.txt,Nodule/lung/bilateral/interstitial,F-5
+650.txt,Cardiac Shadow/enlarged/mild,F-6
 650.txt,"Fractures, Bone/humerus/left",0
-650.txt,Stents,0
+650.txt,Stents,F-8
 650.txt,"Hernia, Hiatal/large",F-11
 650.txt,Cardiomegaly,0
 650.txt,Aorta/prominent,I-4
 651.txt,Surgical Instruments/mediastinum/left,F-2
 651.txt,Pleural Effusion/left/small,F-4
-651.txt,Mediastinum/lymph nodes/enlarged,F-2
+651.txt,Mediastinum/lymph nodes/enlarged,F-5
 653.txt,Spine/degenerative/mild,F-4
-655.txt,Lung/hyperdistention,0
+655.txt,Lung/hyperdistention,F-2
 656.txt,Cardiomegaly/mild,0
 656.txt,Lung/hyperdistention,I-2
 659.txt,Aorta/tortuous,F-2
-659.txt,Lung/hypoinflation,0
+659.txt,Lung/hypoinflation,F-3
 659.txt,Thoracic Vertebrae/degenerative/moderate,F-5
-660.txt,Calcinosis/lung/hilum/lymph nodes,0
-661.txt,Medical Device/spine,0
+660.txt,Calcinosis/lung/hilum/lymph nodes,F-4
+661.txt,Medical Device/spine,F-1
 661.txt,Thoracic Vertebrae/degenerative,F-5
 662.txt,No Indexing,0
 664.txt,Foreign Bodies/right,F-7
 665.txt,Cardiomegaly,0
-666.txt,Cardiomegaly/borderline,0
+666.txt,Cardiomegaly/borderline,F-1
 666.txt,Atherosclerosis/aorta,F-2
 666.txt,Aorta/tortuous,F-2
 666.txt,Cicatrix/lung/base/right/mild,F-3
@@ -141,13 +141,13 @@ filename,annotation,label
 669.txt,Cardiomegaly,0
 669.txt,Pulmonary Congestion/upper lobe/mild,0
 669.txt,"Hypertension, Pulmonary",F-2
-669.txt,Diaphragmatic Eventration/right,0
+669.txt,Diaphragmatic Eventration/right,F-5
 670.txt,Atherosclerosis/aorta,F-3
 670.txt,Cardiomegaly/mild,0
-671.txt,Calcinosis/lung/hilum,0
+671.txt,Calcinosis/lung/hilum,F-3
 671.txt,Nodule/lung/hilum,F-3
-671.txt,Granulomatous Disease,0
-672.txt,Pulmonary Congestion,0
+671.txt,Granulomatous Disease,F-3
+672.txt,Pulmonary Congestion,I-1
 672.txt,Pulmonary Edema/interstitial/diffuse,0
 672.txt,Cardiomegaly,0
 672.txt,Lung/hypoinflation,I-3
@@ -156,104 +156,104 @@ filename,annotation,label
 675.txt,Spondylosis/thoracic vertebrae,F-4
 675.txt,Surgical Instruments,F-2
 677.txt,"Catheters, Indwelling/right",F-1
-677.txt,Lung/hypoinflation/mild,F-6
-677.txt,Density/lung/lower lobe/left/patchy/small,F-6
-677.txt,Density/lung/lower lobe/right/patchy,F-6
-677.txt,Density/lung/middle lobe/right/patchy,F-6
+677.txt,Lung/hypoinflation/mild,F-4
+677.txt,Density/lung/lower lobe/left/patchy/small,0
+677.txt,Density/lung/lower lobe/right/patchy,0
+677.txt,Density/lung/middle lobe/right/patchy,0
 677.txt,Pleural Effusion/right,F-7
 677.txt,Pneumonia,I-1
 678.txt,Opacity/lung/lower lobe/right,F-5
-678.txt,Nodule/lung/lower lobe/right,0
-678.txt,Pulmonary Congestion,0
+678.txt,Nodule/lung/lower lobe/right,F-5
+678.txt,Pulmonary Congestion,F-5
 678.txt,Pulmonary Edema/interstitial,0
 678.txt,Surgical Instruments,0
 679.txt,No Indexing,0
 680.txt,Calcified Granuloma/lung/base/right/small,F-2
 681.txt,"Catheters, Indwelling/right",F-2
-681.txt,Opacity/lung/middle lobe/bilateral/focal/multiple,0
+681.txt,Opacity/lung/middle lobe/bilateral/focal/multiple,F-4
 682.txt,Surgical Instruments/lung/hilum/right,F-4
 682.txt,Sutures/lung/hilum/right,0
 684.txt,Cardiomegaly,0
 684.txt,"Catheters, Indwelling/right",0
 685.txt,Stents/coronary vessels,F-3
-685.txt,Calcinosis/lung/bilateral/round/small,0
-685.txt,Granulomatous Disease,0
+685.txt,Calcinosis/lung/bilateral/round/small,F-4
+685.txt,Granulomatous Disease,F-4
 685.txt,Thoracic Vertebrae/degenerative,F-8
-685.txt,Density/lung/bilateral/round/small,0
+685.txt,Density/lung/bilateral/round/small,F-4
 686.txt,Cardiomegaly,0
 686.txt,Aorta/tortuous,F-1
 687.txt,Lung/hypoinflation,F-2
 687.txt,Markings/bronchovascular,F-2
 687.txt,Thoracic Vertebrae/degenerative/mild,F-6
 688.txt,Opacity/lung/base/left,F-7
-688.txt,Diaphragm/left/elevated,0
+688.txt,Diaphragm/left/elevated,F-10
 688.txt,Thickening/pleura,F-12
 688.txt,Pulmonary Atelectasis/base/left,0
-688.txt,Airspace Disease/lung/base/left,I-5
+688.txt,Airspace Disease/lung/base/left,I-4
 689.txt,Nodule/lung/lower lobe/left/multiple,F-1
 689.txt,Nodule/lung/hilum/right,F-3
 689.txt,Nodule/lung/right/multiple,I-1
 692.txt,Calcified Granuloma,0
 692.txt,Spine/degenerative,F-5
-693.txt,Calcinosis/lung/hilum/lymph nodes,0
+693.txt,Calcinosis/lung/hilum/lymph nodes,F-3
 693.txt,Calcified Granuloma/scattered,0
-693.txt,Spine/degenerative,0
+693.txt,Spine/degenerative,F-4
 694.txt,No Indexing,0
-695.txt,Diaphragm/right/elevated/mild,0
-695.txt,Opacity/lung/lower lobe/bilateral/patchy,0
-695.txt,Calcinosis/aorta,0
+695.txt,Diaphragm/right/elevated/mild,F-1
+695.txt,Opacity/lung/lower lobe/bilateral/patchy,F-2
+695.txt,Calcinosis/aorta,F-5
 695.txt,Aorta/tortuous,F-5
 695.txt,Scoliosis,F-6
-695.txt,Arthritis,0
+695.txt,Arthritis,F-6
 695.txt,"Pulmonary Disease, Chronic Obstructive",I-1
-697.txt,Diaphragm/left/obscured,0
+697.txt,Diaphragm/left/obscured,F-1
 697.txt,Technical Quality of Image Unsatisfactory ,0
 697.txt,Airspace Disease/lung/base/left,F-1
 698.txt,Osteophyte/thoracic vertebrae/multiple,0
 699.txt,Cardiomegaly,0
-699.txt,Cardiac Shadow/enlarged,0
-699.txt,Opacity/lung/interstitial,F-3
-699.txt,Markings/lung/base/bilateral/interstitial,F-2
-699.txt,Markings/lung/middle lobe/bilateral/interstitial,F-2
+699.txt,Cardiac Shadow/enlarged,F-1
+699.txt,Opacity/lung/interstitial,I-1
+699.txt,Markings/lung/base/bilateral/interstitial,0
+699.txt,Markings/lung/middle lobe/bilateral/interstitial,0
 700.txt,Calcified Granuloma/lung/lower lobe/right,F-2
-700.txt,"Bone Diseases, Metabolic",0
+700.txt,"Bone Diseases, Metabolic",F-5
 700.txt,Thoracic Vertebrae/degenerative/mild,F-5
 701.txt,Cicatrix/thorax/left,F-1
 701.txt,Volume Loss/lung/left,0
 701.txt,Lung/right/hyperdistention,F-4
-701.txt,Density/thorax/left,0
+701.txt,Density/thorax/left,F-1
 702.txt,Pleural Effusion/right/large,F-2
 702.txt,Pulmonary Atelectasis/middle lobe/right,0
 702.txt,Pulmonary Atelectasis/lower lobe/right,0
-702.txt,Opacity/lung/right,0
-703.txt,Lung/hyperdistention,0
-705.txt,Diaphragm/right/elevated,0
-705.txt,Density/costophrenic angle/right,I-2
-706.txt,Aorta/tortuous,0
-706.txt,Markings/bronchovascular/mild,0
-706.txt,Deformity/clavicle,0
-709.txt,Calcinosis/aorta,0
+702.txt,Opacity/lung/right,F-3
+703.txt,Lung/hyperdistention,I-3
+705.txt,Diaphragm/right/elevated,I-2
+705.txt,Density/costophrenic angle/right,0
+706.txt,Aorta/tortuous,F-1
+706.txt,Markings/bronchovascular/mild,F-3
+706.txt,Deformity/clavicle,F-4
+709.txt,Calcinosis/aorta,F-5
 709.txt,"Fractures, Bone/shoulder/right",F-8
 709.txt,Dislocations/shoulder/right,0
-709.txt,"Bone Diseases, Metabolic",0
+709.txt,"Bone Diseases, Metabolic",F-8
 709.txt,Scoliosis,F-9
 710.txt,Calcified Granuloma/lung/upper lobe/right,F-5
 711.txt,Calcified Granuloma/lung/base/bilateral,0
-711.txt,Dislocations/thoracic vertebrae,0
-712.txt,Lung/hyperdistention/mild,0
+711.txt,Dislocations/thoracic vertebrae,F-6
+712.txt,Lung/hyperdistention/mild,F-1
 713.txt,"Catheters, Indwelling/right",0
-713.txt,Density/lung/lower lobe/bilateral/patchy,0
-713.txt,Nodule/lung/lower lobe/bilateral/patchy,0
+713.txt,Density/lung/lower lobe/bilateral/patchy,F-5
+713.txt,Nodule/lung/lower lobe/bilateral/patchy,F-5
 713.txt,Thickening/lung/upper lobe/bronchi/left/scattered,F-6
 713.txt,Cystic Fibrosis,I-1
 713.txt,Heart/left/obscured,F-7
-714.txt,Cicatrix/lung/apex/right,0
+714.txt,Cicatrix/lung/apex/right,F-1
 714.txt,Spine/degenerative,F-5
 3725.txt,Calcified Granuloma/lung/upper lobe/right,0
 3727.txt,Lung/hypoinflation,F-1
 3727.txt,"Catheters, Indwelling/left",0
 3730.txt,Infiltrate/lung/left/interstitial,I-3
-3732.txt,Calcinosis/lung/hilum/lymph nodes/left,0
+3732.txt,Calcinosis/lung/hilum/lymph nodes/left,F-1
 3733.txt,Cardiomegaly,F-1
 3733.txt,Costophrenic Angle/right/blunted,0
 3733.txt,Cicatrix/pleura/right,F-3
@@ -271,74 +271,74 @@ filename,annotation,label
 3741.txt,Surgical Instruments/right,F-5
 3742.txt,Granulomatous Disease,F-2
 3743.txt,No Indexing,0
-3746.txt,Atherosclerosis/aorta/mild,0
-3746.txt,Lung/hypoinflation/mild,0
+3746.txt,Atherosclerosis/aorta/mild,F-3
+3746.txt,Lung/hypoinflation/mild,F-4
 3748.txt,Pulmonary Atelectasis/base/left/mild,0
 3748.txt,Cicatrix/lung/base/left/mild,F-2
 3750.txt,Cardiomegaly,0
-3750.txt,Pleural Effusion/right/small,F-2
-3750.txt,Lung/blood vessels/enlarged,0
-3750.txt,Pulmonary Congestion,0
-3750.txt,Lung/interstitial/prominent,0
+3750.txt,Pleural Effusion/right/small,I-1
+3750.txt,Lung/blood vessels/enlarged,F-3
+3750.txt,Pulmonary Congestion,I-1
+3750.txt,Lung/interstitial/prominent,F-3
 3750.txt,Pulmonary Edema/interstitial,0
 3751.txt,No Indexing,0
-3752.txt,Mediastinum/prominent,0
+3752.txt,Mediastinum/prominent,I-1
 3752.txt,Cardiomegaly/mild,0
 3753.txt,Pulmonary Atelectasis/base/left/mild,0
 3753.txt,Nodule/lung/middle lobe/right/multiple/small,F-4
 3753.txt,Nodule/lung/upper lobe/left/multiple/small,F-4
 3755.txt,Osteophyte/thoracic vertebrae/multiple,0
 3755.txt,Osteophyte/lumbar vertebrae/multiple,0
-3756.txt,Opacity/lung/base/left,0
-3756.txt,Cicatrix/lung/base/left,0
+3756.txt,Opacity/lung/base/left,F-2
+3756.txt,Cicatrix/lung/base/left,F-2
 3757.txt,"Aorta, Thoracic/tortuous/mild",F-3
 3758.txt,Spinal Fusion/cervical vertebrae/anterior,0
-3759.txt,Lung/hyperdistention,0
+3759.txt,Lung/hyperdistention,F-1
 3759.txt,Diaphragm/bilateral/flattened,F-1
 3759.txt,"Pulmonary Disease, Chronic Obstructive",F-1
 3759.txt,Kyphosis/thoracic vertebrae,F-5
-3759.txt,"Bone Diseases, Metabolic/thoracic vertebrae",0
+3759.txt,"Bone Diseases, Metabolic/thoracic vertebrae",F-5
 3760.txt,"Aorta, Thoracic/tortuous",F-3
 3760.txt,Thoracic Vertebrae/degenerative/moderate,F-7
-3761.txt,Cardiomegaly/mild,0
+3761.txt,Cardiomegaly/mild,F-1
 3761.txt,Aorta/tortuous,F-2
-3761.txt,Thoracic Vertebrae/degenerative/mild,0
-3762.txt,Calcinosis/coronary vessels/left,0
+3761.txt,Thoracic Vertebrae/degenerative/mild,F-4
+3762.txt,Calcinosis/coronary vessels/left,F-3
 3766.txt,Atherosclerosis/aorta,F-4
-3766.txt,Arthritis/thoracic vertebrae/mild,0
-3766.txt,Arthritis/severe,0
+3766.txt,Arthritis/thoracic vertebrae/mild,F-5
+3766.txt,Arthritis/severe,F-5
 3768.txt,Cardiomegaly/mild,0
 3768.txt,Kyphosis/thoracic vertebrae/severe,F-4
-3769.txt,Lung/hypoinflation,I-1
-3769.txt,Opacity/lung/hilum/bilateral,0
-3769.txt,Scoliosis/thoracic vertebrae/right,0
-3769.txt,"Tube, Inserted/trachea",0
+3769.txt,Lung/hypoinflation,F-1
+3769.txt,Opacity/lung/hilum/bilateral,I-1
+3769.txt,Scoliosis/thoracic vertebrae/right,F-3
+3769.txt,"Tube, Inserted/trachea",F-4
 3770.txt,Spine/degenerative,F-4
 3772.txt,Calcified Granuloma,F-4
 3772.txt,Spine/degenerative,F-5
 3774.txt,Aorta/tortuous,F-2
 3774.txt,Atherosclerosis/aorta,F-6
 3774.txt,Granuloma/lung/lower lobe/right,F-7
-3776.txt,Calcinosis/lung/hilum/lymph nodes/right,0
+3776.txt,Calcinosis/lung/hilum/lymph nodes/right,I-2
 3777.txt,Lung/hypoinflation,F-1
 3777.txt,Thoracic Vertebrae/degenerative/mild,F-5
-3777.txt,Surgical Instruments/abdomen/right,0
-3780.txt,Density/costophrenic angle/left/round/small,I-4
+3777.txt,Surgical Instruments/abdomen/right,F-6
+3780.txt,Density/costophrenic angle/left/round/small,0
 3780.txt,Calcified Granuloma,I-4
-3784.txt,Lung/hypoinflation,0
+3784.txt,Lung/hypoinflation,F-2
 3784.txt,Technical Quality of Image Unsatisfactory ,0
-3785.txt,Opacity/lung/hilum/multiple/prominent/mild,0
+3785.txt,Opacity/lung/hilum/multiple/prominent/mild,F-2
 3785.txt,Markings/bronchovascular,F-2
 3786.txt,Consolidation/lung/upper lobe/left,0
 3786.txt,Consolidation/lung/lower lobe/bilateral,0
-3786.txt,Cardiomegaly/mild,0
+3786.txt,Cardiomegaly/mild,F-2
 3786.txt,Pneumonia/focal/multiple,I-1
 3789.txt,Cardiomegaly/mild,0
 3789.txt,Surgical Instruments/abdomen/right,F-5
 3790.txt,Lung/hypoinflation,F-1
-3790.txt,Diaphragm/right/elevated,0
-3790.txt,Opacity/lung/base/right/patchy,0
-3790.txt,Calcinosis/aorta,0
+3790.txt,Diaphragm/right/elevated,F-2
+3790.txt,Opacity/lung/base/right/patchy,F-3
+3790.txt,Calcinosis/aorta,F-6
 3790.txt,Granuloma/thorax/multiple,0
 3790.txt,Costophrenic Angle/bilateral/blunted,0
 3790.txt,Thoracic Vertebrae/degenerative,F-10
@@ -346,8 +346,8 @@ filename,annotation,label
 3791.txt,Mass/thorax/multiple,0
 3793.txt,Thoracic Vertebrae/scattered/degenerative,F-2
 3793.txt,Aorta/tortuous,F-4
-3793.txt,Markings/lung/interstitial/chronic,F-5
+3793.txt,Markings/lung/interstitial/chronic,0
 3793.txt,Opacity/lung/base/left,F-6
 3793.txt,Airspace Disease/lung/base/left,I-1
 3794.txt,Opacity/ribs/left/anterior/round,F-4
-3795.txt,Scoliosis/thoracic vertebrae/right/moderate,0
+3795.txt,Scoliosis/thoracic vertebrae/right/moderate,F-2

@@ -178,4 +178,4 @@ def find_annotations(openI_files):
                                     import pdb; pdb.set_trace()
 
 if __name__ == '__main__':
-    find_annotations(TRAIN)
+    find_annotations(TEST)

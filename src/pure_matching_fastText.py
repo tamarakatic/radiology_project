@@ -61,121 +61,121 @@ def find_annotations(openI_files):
 
     for filename in sorted(os.listdir(openI_files), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
         with open(openI_files+filename, 'r+') as fp:
-                searchlines = fp.readlines()
-                impression_finding = OrderedDict()
-                annot_idx=0
+            searchlines = fp.readlines()
+            impression_finding = OrderedDict()
+            annot_idx=0
 
-                for idx, sent in enumerate(searchlines):
-                        if "ANNOTATION WITH SENTENCE LABEL" in sent.rstrip('\n'):
-                            annot_idx = idx
-  
-                for i, line in enumerate(searchlines):
-                    if "SENTENCE LABEL" in line.rstrip('\n'):
-                        for nextLine in searchlines[i+1:annot_idx-1]:
-                            sentence = nextLine.rstrip('\n')
-                            key = sentence.split('[label]:')[1]
-                            value = sentence.split('[label]:')[0]
-                            impression_finding[key] = value
+            for idx, sent in enumerate(searchlines):
+                    if "ANNOTATION WITH SENTENCE LABEL" in sent.rstrip('\n'):
+                        annot_idx = idx
 
-                        impression_finding_sentences = OrderedDict()
-                        for k, v in impression_finding.items():
-                            if v not in impression_finding_sentences.values():  
-                                impression_finding_sentences[k] = v
+            for i, line in enumerate(searchlines):
+                if "SENTENCE LABEL" in line.rstrip('\n'):
+                    for nextLine in searchlines[i+1:annot_idx-1]:
+                        sentence = nextLine.rstrip('\n')
+                        key = sentence.split('[label]:')[1]
+                        value = sentence.split('[label]:')[0]
+                        impression_finding[key] = value
 
-                    if "ANNOTATION WITH SENTENCE LABEL" in line.rstrip('\n'):
-                        print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
-                        new_impression_finding_sentences = impression_finding_sentences.copy()
-                        for key_annot, value_annot in new_impression_finding_sentences.items():
-                            if not_annotate_sentence(value_annot):    # delete sentences with 'NOT_ANNOTATED' words
-                                impression_finding_sentences.pop(key_annot)
-                                       
-                        for nextLine in searchlines[i+1:]:
-                            if nextLine.rstrip('\n'):
-                                similar_words = []
-                                code = nextLine.rstrip('\n').rstrip(":").split("/")
-                                disease = code[0].rstrip('\n')
-                                matching = []
-                                disease_synonym = None
-                                if zero_annotation(disease.lower()):
-                                    print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
-                                    continue
+                    impression_finding_sentences = OrderedDict()
+                    for k, v in impression_finding.items():
+                        if v not in impression_finding_sentences.values():  
+                            impression_finding_sentences[k] = v
+
+                if "ANNOTATION WITH SENTENCE LABEL" in line.rstrip('\n'):
+                    print(f"\nANNOTATION WITH SENTENCE WITH LABELS", file=fp)
+                    new_impression_finding_sentences = impression_finding_sentences.copy()
+                    for key_annot, value_annot in new_impression_finding_sentences.items():
+                        if not_annotate_sentence(value_annot):    # delete sentences with 'NOT_ANNOTATED' words
+                            impression_finding_sentences.pop(key_annot)
                                     
-                                if ', ' in disease:  # if string has synonyms
-                                    disease_synonym = disease.split(', ')
+                    for nextLine in searchlines[i+1:]:
+                        if nextLine.rstrip('\n'):
+                            similar_words = []
+                            code = nextLine.rstrip('\n').rstrip(":").split("/")
+                            disease = code[0].rstrip('\n')
+                            matching = []
+                            disease_synonym = None
+                            if zero_annotation(disease.lower()):
+                                print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
+                                continue
+                                
+                            if ', ' in disease:  # if string has synonyms
+                                disease_synonym = disease.split(', ')
 
-                                if len(disease.split()) > 1:   # disease has more than 1 word
-                                        # merge with '_' words
-                                    if disease_synonym: # there are more disease (disease_synonym)
-                                        for dis in disease_synonym:
-                                            similar_words.append(dis.lower())
-                                            similar_words.append(ps.stem(dis.lower()))
-                                            if len(dis.split()) > 1: # if disease before or after comma has more than 1 word
-                                                dis = '_'.join(dis.lower().split())
-                                            similar_words += get_related_terms(fastText, dis)
-                                        
-                                    else:
-                                        similar_words.append(disease.lower())
-                                        for dis in disease.lower().split():
-                                            similar_words.append(dis)
-                                        similar_words.append(ps.stem(disease.lower()))
-                                        merge_lower_sent = '_'.join(disease.lower().split())
-                                        similar_words += get_related_terms(fastText, merge_lower_sent)
+                            if len(disease.split()) > 1:   # disease has more than 1 word
+                                    # merge with '_' words
+                                if disease_synonym: # there are more disease (disease_synonym)
+                                    for dis in disease_synonym:
+                                        similar_words.append(dis.lower())
+                                        similar_words.append(ps.stem(dis.lower()))
+                                        if len(dis.split()) > 1: # if disease before or after comma has more than 1 word
+                                            dis = '_'.join(dis.lower().split())
+                                        similar_words += get_related_terms(fastText, dis)
+                                    
                                 else:
                                     similar_words.append(disease.lower())
+                                    for dis in disease.lower().split():
+                                        similar_words.append(dis)
                                     similar_words.append(ps.stem(disease.lower()))
-                                    similar_words += get_related_terms(fastText, disease.lower())         
-                                
-                                if similar_words: # if there are duplicates get unique fastText words
-                                    similar_words = remove_duplicates(similar_words)      
-                                    matching += find_synonyms(disease.lower(), impression_finding_sentences)
-                                    for sim_word in similar_words:
-                                        matching += [key for key, sent in impression_finding_sentences.items() 
-                                                     if sim_word in sent.lower()]
-                                else:
-                                    if disease_synonym:
-                                        matching += [key for dis in disease_synonym 
-                                                     for key, sent in impression_finding_sentences.items() 
-                                                     if dis.lower() in sent.lower()]
-                                       
-                                    else:
-                                        matching += [key for key, sent in impression_finding_sentences.items() 
-                                                     if disease.lower() in sent.lower()]
-                                        matching += find_synonyms(disease.lower(), impression_finding_sentences)
+                                    merge_lower_sent = '_'.join(disease.lower().split())
+                                    similar_words += get_related_terms(fastText, merge_lower_sent)
+                            else:
+                                similar_words.append(disease.lower())
+                                similar_words.append(ps.stem(disease.lower()))
+                                similar_words += get_related_terms(fastText, disease.lower())         
                             
-                                try:
-                                    if matching:
-                                            matching = remove_duplicates(matching)
-                                    if len(matching) == 1:
-                                        print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
-                                    elif len(matching) > 1:
-                                        if code[1:]:    # if code has subheadings
-                                            high_influence = OrderedDict()
-                                            for sub_key in matching:
-                                                high_influence[sub_key] = 0
-                                                for anot in code[1:]:
-                                                    similar_anot = []
-                                                    anot = anot.lower()
-                                                    if anot in impression_finding_sentences[sub_key].lower():
+                            if similar_words: # if there are duplicates get unique fastText words
+                                similar_words = remove_duplicates(similar_words)      
+                                matching += find_synonyms(disease.lower(), impression_finding_sentences)
+                                for sim_word in similar_words:
+                                    matching += [key for key, sent in impression_finding_sentences.items() 
+                                                    if sim_word in sent.lower()]
+                            else:
+                                if disease_synonym:
+                                    matching += [key for dis in disease_synonym 
+                                                    for key, sent in impression_finding_sentences.items() 
+                                                    if dis.lower() in sent.lower()]
+                                    
+                                else:
+                                    matching += [key for key, sent in impression_finding_sentences.items() 
+                                                    if disease.lower() in sent.lower()]
+                                    matching += find_synonyms(disease.lower(), impression_finding_sentences)
+                        
+                            try:
+                                if matching:
+                                        matching = remove_duplicates(matching)
+                                if len(matching) == 1:
+                                    print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
+                                elif len(matching) > 1:
+                                    if code[1:]:    # if code has subheadings
+                                        high_influence = OrderedDict()
+                                        for sub_key in matching:
+                                            high_influence[sub_key] = 0
+                                            for anot in code[1:]:
+                                                similar_anot = []
+                                                anot = anot.lower()
+                                                if anot in impression_finding_sentences[sub_key].lower():
+                                                    high_influence[sub_key] += 1
+                                                elif is_in_synonyms(anot.lower()):
+                                                    if check_synonyms(anot.lower(), impression_finding_sentences[sub_key].lower()):
                                                         high_influence[sub_key] += 1
-                                                    elif is_in_synonyms(anot.lower()):
-                                                        if check_synonyms(anot.lower(), impression_finding_sentences[sub_key].lower()):
-                                                            high_influence[sub_key] += 1
-                                                    else:
-                                                        if check_splitted_annotation(anot.lower(), impression_finding_sentences[sub_key].lower()):
-                                                            high_influence[sub_key] += 1
-                                                    # else:
-                                                    #     pass
-                                            max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
-                                            print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)
-                                        else:   # choose first key as there are no subheadings
-                                            finding = [match for match in matching if "F-" in match]
-                                            if not finding:
-                                                finding = matching
-                                            print("{} {}".format(nextLine.rstrip('\n'), finding[0]), file=fp)
-                                    else:
-                                        print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
-                                except IndexError:
-                                    import pdb; pdb.set_trace()
+                                                else:
+                                                    if check_splitted_annotation(anot.lower(), impression_finding_sentences[sub_key].lower()):
+                                                        high_influence[sub_key] += 1
+                                                # else:
+                                                #     pass
+                                        max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
+                                        print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)
+                                    else:   # choose first key as there are no subheadings
+                                        finding = [match for match in matching if "F-" in match]
+                                        if not finding:
+                                            finding = matching
+                                        print("{} {}".format(nextLine.rstrip('\n'), finding[0]), file=fp)
+                                else:
+                                    print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
+                            except IndexError:
+                                import pdb; pdb.set_trace()
 
 if __name__ == '__main__':
-    find_annotations(TEST)
+    find_annotations(TRAIN)

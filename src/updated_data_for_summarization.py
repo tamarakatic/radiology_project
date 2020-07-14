@@ -1,0 +1,189 @@
+import os
+import re
+import json
+from random import shuffle
+from math import floor
+from nltk.tokenize import word_tokenize
+from collections import OrderedDict
+
+from data.definition import TRAIN
+from data.definition import NEW_UPDATED_LABELED_REPORTS_JSON
+from data.definition import NEW_UPDATED_NO_LABELED_REPORTS_JSON
+from nltk.corpus import stopwords
+from string import punctuation
+import spacy
+
+stopwords = stopwords.words('english')
+nlp = spacy.load('en_core_web_sm')
+
+
+def preprocess_sentence(sent):
+    sent = " ".join([w for w in sent.lower().split() if w not in stopwords])
+    sent = sent.translate(str.maketrans('', '', punctuation)) # remove punctuation
+    sent = ''.join([i for i in sent if not i.isdigit()]) # remove digits
+    sent = sent.replace("+", " ")
+    return sent
+
+def preprocess_indication(sentence):
+    sentence = ' '.join([sent.rstrip("\n") for sent in sentence if sent.strip() != ''])
+    sentence = sentence.replace('\t', ': ')
+    sentence = sentence.replace("XXXX", "").replace("-", " ")
+    sentence = sentence.replace("INDICATION:", "")
+    prepr_sent = []
+
+    tokens = nlp(sentence)
+    for sent in tokens.sents:
+        prepr_sent.append(preprocess_sentence(sent.string))
+    
+    sentence = " ".join(prepr_sent)
+    
+    tokenize_sent = word_tokenize(sentence)
+    return tokenize_sent
+
+def preprocess_sentences_and_annotations(annotations, sentences, label):
+    all_annotations = []
+    keys = []
+    
+    preprocessed_fidings = []
+    preprocessed_fidings.append("SENTENCES")
+    preprocessed_fidings.append(":")
+
+    preprocessed_annotation = []
+    preprocessed_annotation.append("ANNOTATION")
+    preprocessed_annotation.append(":")
+
+    for annot in annotations:
+        annotation = annot.rstrip('\n')
+        annot_key = annotation.split(': ')[1]
+        keys.append(annot_key)
+        annot_value = annotation.split(': ')[0]
+        annot_value = annot_value + "."
+        annot_value = annot_value.replace("/", " / ")
+        all_annotations.append(annot_value)
+        if not label:
+            preprocessed_annotation += word_tokenize(annot_value)
+        
+    for sent in sentences:
+        sentence = sent.rstrip('\n')
+        sent_key = sentence.split('[label]:')[1]
+        value = sentence.split('[label]:')[0]
+        value = preprocess_sentence(value)
+        
+        if "xxxx" in value:
+            value = value.replace("xxxx", "")
+        if not label:
+            preprocessed_fidings += word_tokenize(value)
+
+        else:  
+            if sent_key in keys:
+                for idx, k in enumerate(keys):
+                    if k in sent_key:
+                        preprocessed_fidings += word_tokenize(value)
+                        preprocessed_annotation += word_tokenize(all_annotations[idx])
+
+            else:
+                preprocessed_fidings += word_tokenize(value)
+
+                preprocessed_annotation.append("<UNK>")
+                preprocessed_annotation.append(".")
+
+    return preprocessed_annotation, preprocessed_fidings 
+
+
+def extract_sentence_and_annotation(labeled_reports, train, test):
+    len_annot = []
+    for filename in sorted(os.listdir(labeled_reports), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
+        with open(labeled_reports+filename, 'r') as fp:
+            fp.seek(0)
+            searchlines = fp.readlines()
+
+            findingIdx = 0
+            indicationIdx = 0
+            label_findingIdx = 0
+            end_of_label_findingIdx = 0
+            annotationIdx = 0
+
+            indication = []
+            labeled_sentences = []
+            annotation = []
+            
+            for i, line in enumerate(searchlines):
+                if "INDICATION" in line:
+                    indicationIdx = i
+            
+                if "FINDINGS" in line:
+                    findingIdx = i
+
+                if "SENTENCE LABEL" == line.rstrip('\n'):
+                    label_findingIdx = i
+
+                if "ANNOTATION WITH SENTENCE LABEL" in line:
+                    end_of_label_findingIdx = i
+        
+                if "ANNOTATION WITH SENTENCE WITH LABELS" in line:
+                    annotationIdx = i
+
+            if filename in train:   
+                if indicationIdx != 0:
+                    if findingIdx != 0:
+                        indication += preprocess_indication(searchlines[indicationIdx:findingIdx])
+                else:
+                    continue
+
+                if indication:
+                    if label_findingIdx != 0 and end_of_label_findingIdx != 0:
+                        prep_annotations, prep_sentences = preprocess_sentences_and_annotations(searchlines[annotationIdx+1:], 
+                                                                                                searchlines[label_findingIdx+1:end_of_label_findingIdx-1], 
+                                                                                                True)
+                        report_dict = {"background": indication,
+                                        "findings": prep_sentences,
+                                        "impression": prep_annotations}
+
+                        with open(NEW_UPDATED_LABELED_REPORTS_JSON, "a+") as jf:
+                            json.dump(report_dict, jf)
+                            jf.write('\n')
+            else:
+                if filename in test:
+                    if indicationIdx != 0:
+                        if findingIdx != 0:
+                            indication += preprocess_indication(searchlines[indicationIdx:findingIdx])
+                    else:
+                        continue
+
+                    if indication:
+                        if label_findingIdx != 0 and end_of_label_findingIdx != 0:
+                            prep_annotations, prep_sentences = preprocess_sentences_and_annotations(searchlines[annotationIdx+1:], 
+                                                                                                    searchlines[label_findingIdx+1:end_of_label_findingIdx-1], 
+                                                                                                    False)
+                
+                            report_dict_no_Lb = {"background": indication,
+                                                "findings": prep_sentences,
+                                                "impression": prep_annotations}
+
+                            with open(NEW_UPDATED_NO_LABELED_REPORTS_JSON, "a+") as jf_no_lb:
+                                json.dump(report_dict_no_Lb, jf_no_lb)
+                                jf_no_lb.write('\n')
+
+def randomize_files(file_list):
+    shuffle(file_list)    
+
+def get_train_test_sets(file_list):
+    split = 0.80
+    split_index = floor(len(file_list) * split)
+    train = file_list[:split_index]
+
+    dev_split = 0.1
+
+    test = file_list[split_index:]
+
+    return train, test                      
+
+if __name__ == '__main__':
+    filename_list = []
+    for filename in sorted(os.listdir(TRAIN), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
+        filename_list.append(filename)
+
+    randomize_files(filename_list)
+    train, test = get_train_test_sets(filename_list)
+    
+    preprocessed_sent = extract_sentence_and_annotation(TRAIN, train, test)

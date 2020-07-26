@@ -12,6 +12,7 @@ FASTTEXT_RADIOLOGY_TRIGRAM = os.path.join(ROOT_PATH, 'data/external/fastTextMimi
 
 OPENI_AND_MIMIC_FASTTEXT_RADIOLOGY_UNIGRAM = os.path.join(ROOT_PATH, 'data/external/fastTextOpenI/openI_fastTextRadiologyUnigram.model')
 OPENI_AND_MIMIC_FASTTEXT_RADIOLOGY_BIGRAM = os.path.join(ROOT_PATH, 'data/external/fastTextOpenI/openI_fastTextRadiologyBigram.model')
+PREPROCESSED_OPENI_AND_MIMIC_FASTTEXT_RADIOLOGY_UNIGRAM = os.path.join(ROOT_PATH, 'data/external/fastTextOpenI/sg_preprocessed_openI_fastTextRadiologyUnigram.model')
 
 MIMIC_CXR = os.path.join(ROOT_PATH, 'data/external/mimic-cxr-reports/')
 PREPROCESSED_MIMIC_CXR = os.path.join(ROOT_PATH, 'data/external/preprocessed_mimic_cxr.txt')
@@ -43,8 +44,20 @@ TRAIN_NO_LABEL = os.path.join(ROOT_PATH, 'data/train_no_label/')
 OPENI = os.path.join(ROOT_PATH, 'data/openI/')
 
 ALL_LABELED_REPORTS = os.path.join(ROOT_PATH, 'data/openITest_Train/all_reports_labeled/')
-NEW_UPDATED_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/new_updated_labeled_reports.jsonl')
-NEW_UPDATED_NO_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/new_updated_NO_labeled_reports.jsonl')
+NEW_UPDATED_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/changed_new_updated_labeled_reports.jsonl')
+NEW_UPDATED_NO_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/changed_new_updated_NO_labeled_reports.jsonl')
+
+SEQ_FILLTERED_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/sequence_filltered_labeled_reports.jsonl')
+SEQ_FILLTEREDD_NO_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/sequence_filltered_NO_labeled_reports.jsonl')
+
+REPETITION_SEQ_FILLTERED_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/repetition_sequence_filltered_labeled_reports.jsonl')
+REPETITION_SEQ_FILLTEREDD_NO_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/repetition_sequence_filltered_NO_labeled_reports.jsonl')
+
+PREPROCESSED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/preprocessed_reports.jsonl')
+PREPROCESSED_NO_LABEL_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/preprocessed_no_labeled_reports.jsonl')
+
+FILLTERED_PREPROCESSED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/filltered_preprocessed_reports.jsonl')
+FILLTERED_PREPROCESSED_NO_LABEL_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/filltered_preprocessed_no_labeled_reports.jsonl')
 
 UPDATED_ALL_LABELED_REPORTS_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/updated_all_reports_labeled.jsonl')
 SEPARATE_ANNOT_SENT_JSON = os.path.join(ROOT_PATH, 'data/openITest_Train/separate_annot_sent.jsonl')
@@ -62,6 +75,6 @@ TEST_REPRODUCTION_SUMMARI = os.path.join(ROOT_PATH, 'data/reproduction/test.json
 TRAIN_REPRODUCTION_SUMMARI = os.path.join(ROOT_PATH, 'data/reproduction/train.jsonl')
 DEV_REPRODUCTION_SUMMARI = os.path.join(ROOT_PATH, 'data/reproduction/dev.jsonl')
 
-TRAIN_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/preprocessed_updated_summarization/train.jsonl')
-TEST_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/preprocessed_updated_summarization/test.jsonl')
-DEV_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/preprocessed_updated_summarization/dev.jsonl')
+TRAIN_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/train.jsonl')
+TEST_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/test.jsonl')
+DEV_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/dev.jsonl')

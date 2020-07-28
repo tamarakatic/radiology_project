@@ -78,3 +78,11 @@ DEV_REPRODUCTION_SUMMARI = os.path.join(ROOT_PATH, 'data/reproduction/dev.jsonl'
 TRAIN_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/train.jsonl')
 TEST_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/test.jsonl')
 DEV_UPDATED_SUMMARIZATION = os.path.join(ROOT_PATH, 'data/sequence_filltered_reports/dev.jsonl')
+
+SENTENCE_SIMILARITY = os.path.join(ROOT_PATH, 'data/similarity_sent_result/')
+TRAIN_SENTENCE_SIMILARITY = os.path.join(ROOT_PATH, 'data/similarity_sent_result/train.csv')
+DEV_SENTENCE_SIMILARITY = os.path.join(ROOT_PATH, 'data/similarity_sent_result/dev.csv')
+TEST_SENTENCE_SIMILARITY = os.path.join(ROOT_PATH, 'data/similarity_sent_result/test.csv')
+MATCHED_SENTENCES = os.path.join(ROOT_PATH, 'data/matched_sentences/')
+
+RESULTS_MATCHED_SENTENCES = os.path.join(ROOT_PATH, 'results/similarity_output/')

@@ -12,11 +12,16 @@ from data.rule_based_matching import check_splitted_annotation
 from data.rule_based_matching import zero_annotation 
 from data.rule_based_matching import check_synonyms
 from data.rule_based_matching import is_in_synonyms
-from data.definition import FASTTEXT_RADIOLOGY_UNIGAM
+from data.definition import OPENI_AND_MIMIC_FASTTEXT_RADIOLOGY_UNIGRAM
 from data.definition import FASTTEXT_RADIOLOGY_BIGRAM
 from data.definition import FASTTEXT_RADIOLOGY_TRIGRAM
-from data.definition import TEST, TRAIN
+from data.definition import TEST
 
+from sentence_transformers import SentenceTransformer, util
+from data.definition import RESULTS_MATCHED_SENTENCES
+
+# model_save_path = RESULTS_MATCHED_SENTENCES + "Bio_ClinicalBERT-2020-07-28_20-03-24"
+model_save_path = RESULTS_MATCHED_SENTENCES + "Bio_ClinicalBERT-2020-07-29_20-32-07"
 
 def get_related_terms(word2vec, token, topn=5):
     similar_words = []
@@ -52,12 +57,38 @@ def find_synonyms(disease, impression_finding_sentences):
                 synonyms_matching.append(key_syn)
     return synonyms_matching
 
+def find_most_similar_sentences(sentence_key_pairs, query):
+    corpus = list(sentence_key_pairs.values())
+    embedder =  SentenceTransformer(model_save_path)
+    corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
+
+    similar_sentences = None
+    key_result = "0"
+
+    closest_n = 1
+ 
+    query_embedding = embedder.encode(query, convert_to_tensor=True)
+    scores = util.pytorch_cos_sim(query_embedding, corpus_embeddings)[0]
+
+    results = zip(range(len(scores)), scores)
+    results = sorted(results, key=lambda x: x[1], reverse=True)
+
+    for idx, score in results[0:closest_n]:
+        similar_sentences = corpus[idx].strip()
+    
+    for k, v in sentence_key_pairs.items():
+        if similar_sentences.rstrip() in v.rstrip():
+            key_result = k
+            break
+
+    return key_result
+
 
 def find_annotations(openI_files):
     ps = PorterStemmer()
-    fastText = FastText.load(FASTTEXT_RADIOLOGY_BIGRAM)
+    fastText = FastText.load(OPENI_AND_MIMIC_FASTTEXT_RADIOLOGY_UNIGRAM)
     fastText.wv.init_sims()
-    
+    siamese = 0
 
     for filename in sorted(os.listdir(openI_files), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
         with open(openI_files+filename, 'r+') as fp:
@@ -66,8 +97,8 @@ def find_annotations(openI_files):
             annot_idx=0
 
             for idx, sent in enumerate(searchlines):
-                    if "ANNOTATION WITH SENTENCE LABEL" in sent.rstrip('\n'):
-                        annot_idx = idx
+                if "ANNOTATION WITH SENTENCE LABEL" in sent.rstrip('\n'):
+                    annot_idx = idx
 
             for i, line in enumerate(searchlines):
                 if "SENTENCE LABEL" in line.rstrip('\n'):
@@ -107,8 +138,8 @@ def find_annotations(openI_files):
                                     # merge with '_' words
                                 if disease_synonym: # there are more disease (disease_synonym)
                                     for dis in disease_synonym:
-                                        similar_words.append(dis.lower())
-                                        similar_words.append(ps.stem(dis.lower()))
+                                        similar_words.append(dis.lower()) # add subword of disease
+                                        similar_words.append(ps.stem(dis.lower()))  # add stem of that disease
                                         if len(dis.split()) > 1: # if disease before or after comma has more than 1 word
                                             dis = '_'.join(dis.lower().split())
                                         similar_words += get_related_terms(fastText, dis)
@@ -117,6 +148,7 @@ def find_annotations(openI_files):
                                     similar_words.append(disease.lower())
                                     for dis in disease.lower().split():
                                         similar_words.append(dis)
+                                        similar_words.append(ps.stem(dis.lower())) 
                                     similar_words.append(ps.stem(disease.lower()))
                                     merge_lower_sent = '_'.join(disease.lower().split())
                                     similar_words += get_related_terms(fastText, merge_lower_sent)
@@ -132,19 +164,13 @@ def find_annotations(openI_files):
                                     matching += [key for key, sent in impression_finding_sentences.items() 
                                                     if sim_word in sent.lower()]
                             else:
-                                if disease_synonym:
-                                    matching += [key for dis in disease_synonym 
-                                                    for key, sent in impression_finding_sentences.items() 
-                                                    if dis.lower() in sent.lower()]
-                                    
-                                else:
-                                    matching += [key for key, sent in impression_finding_sentences.items() 
-                                                    if disease.lower() in sent.lower()]
-                                    matching += find_synonyms(disease.lower(), impression_finding_sentences)
+                                matching += [key for key, sent in impression_finding_sentences.items() 
+                                                 if disease.lower() in sent.lower()]
+                                matching += find_synonyms(disease.lower(), impression_finding_sentences)
                         
                             try:
                                 if matching:
-                                        matching = remove_duplicates(matching)
+                                    matching = remove_duplicates(matching)
                                 if len(matching) == 1:
                                     print("{} {}".format(nextLine.rstrip('\n'), matching[0]), file=fp)
                                 elif len(matching) > 1:
@@ -163,8 +189,6 @@ def find_annotations(openI_files):
                                                 else:
                                                     if check_splitted_annotation(anot.lower(), impression_finding_sentences[sub_key].lower()):
                                                         high_influence[sub_key] += 1
-                                                # else:
-                                                #     pass
                                         max_impact_key = max(high_influence.items(), key=operator.itemgetter(1))[0]
                                         print("{} {}".format(nextLine.rstrip('\n'), max_impact_key), file=fp)
                                     else:   # choose first key as there are no subheadings
@@ -173,9 +197,13 @@ def find_annotations(openI_files):
                                             finding = matching
                                         print("{} {}".format(nextLine.rstrip('\n'), finding[0]), file=fp)
                                 else:
-                                    print("{} {}".format(nextLine.rstrip('\n'), 0), file=fp)
+                                    siamese += 1
+                                    annotation = " ".join(code)
+                                    res_siamese = find_most_similar_sentences(impression_finding_sentences, annotation)
+                                    print("{} {}".format(nextLine.rstrip('\n'), res_siamese), file=fp)
                             except IndexError:
                                 import pdb; pdb.set_trace()
+    print(f"Number of siamese searching: {siamese}")
 
 if __name__ == '__main__':
-    find_annotations(TRAIN)
+    find_annotations(TEST)

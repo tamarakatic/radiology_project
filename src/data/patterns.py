@@ -1,5 +1,5 @@
 # if every sentences has these anotated words then label anotation with 0
-# NOT_ANNOTATED = ["not", "normal", "without", "negative for", "stable", "intact", "unchanged", "no evidence", "no acute", "no suspicious", "clear", "free of", "removal", "removed"]
+# NOT_ANNOTATED = ["not", "no", "normal", "without", "negative for", "stable", "intact", "unchanged", "no evidence", "no acute", "no suspicious", "clear", "free of", "removal", "removed"]
 NOT_ANNOTATED = ["not", "negative for", "no evidence", "no suspicious", "free of", "removal", "removed"]
 
 NOT_FOUND = ["no indexing", "technical quality of image unsatisfactory"]

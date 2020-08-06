@@ -48,8 +48,8 @@ def find_annotations(openI_files, annotation, file_name):
                                 labels.append(key)
                             except IndexError:
                                 import pdb; pdb.set_trace()
-    # df = pd.DataFrame(results)
-    # df.to_csv(RESULTS+"labeled/{}.csv".format(file_name), index=False)
+    df = pd.DataFrame(results)
+    df.to_csv(RESULTS+"labeled/{}.csv".format(file_name), index=False)
     return labels
 
 

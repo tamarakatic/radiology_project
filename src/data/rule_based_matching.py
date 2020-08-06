@@ -68,10 +68,13 @@ def check_splitted_annotation(annotation, sentence):
     if len(annotation.split()) > 1:
         count_words = 0
         for word in annotation.split():
-            if is_sub_word_in_synonyms(word):
-                value = SYNONYMS[word]
-                if value in sentence:
+            if is_in_synonyms(word):
+                if word in sentence:
                     count_words += 1
+                elif check_synonyms(word, sentence):
+                    count_words += 1
+                else:
+                    pass
         if count_words == len(annotation.split()):
             return True
     return False

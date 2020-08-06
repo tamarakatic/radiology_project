@@ -5,7 +5,7 @@ from collections import defaultdict
 from collections import Counter
 from typing import Dict
 
-from data.definition import OPENI, PREPROCESSED_OPENI
+from data.definition import HUMAN_LABELS
 from nltk.corpus import stopwords
 
 stopwords = stopwords.words('english')
@@ -25,6 +25,8 @@ tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
 def find_annotations(openI_files):
     all_sentences = []
+    total_sent = 0
+    total_annot = 0
     for filename in sorted(os.listdir(openI_files), key=lambda x: int(os.path.splitext(x)[0])): # sort files in folder
         with open(openI_files+filename, 'r+') as fp:
             fp.seek(0)
@@ -39,6 +41,7 @@ def find_annotations(openI_files):
                         findings = line.split('\t')[1].rstrip('\n')
                         findings_sentences = tokenizer.tokenize(findings)
                         for idx, sent in enumerate(findings_sentences, start=1):
+                            total_sent+= 1
                             print(f"{sent} F-{idx}", file=fp)
                         findings_sentences = [sent.rstrip('.') for sent in findings_sentences if sent]
                         impression_finding_sentences = findings_sentences
@@ -55,6 +58,7 @@ def find_annotations(openI_files):
                         except IndexError:
                             import pdb; pdb.set_trace()
                         for idx, sent in enumerate(impression_sentences, start=1):
+                            total_sent+= 1
                             print(f"{sent} I-{idx}", file=fp)
                         impression_sentences = [sent.rstrip('.') for sent in impression_sentences if sent]
                         impression_finding_sentences += impression_sentences
@@ -65,6 +69,7 @@ def find_annotations(openI_files):
                 if "Annotation:" in line:
                     print(f"\nANNOTATION WITH SENTENCE LABEL", file=fp)
                     for nextLine in searchlines[i+1:]:
+                        total_annot += 1
                         code = nextLine.split("/")
                         disease = code[0].rstrip('\n')
                         all_sentences.append(nextLine.rstrip('\n').replace("/", " "))
@@ -81,13 +86,10 @@ def find_annotations(openI_files):
                                 print("{}".format(nextLine.rstrip('\n')), file=fp)
                             else:
                                 print("{}".format(nextLine.rstrip('\n')), file=fp)
+    print(total_sent)
+    print(total_annot)
     return all_sentences
 
 
 if __name__ == '__main__':
-    preprocessed_sent = find_annotations(OPENI)
-    with open(PREPROCESSED_OPENI, 'a') as f:
-        for sent in preprocessed_sent:
-            sent = [w for w in sent.lower().split() if w not in stopwords]
-            sent = " ".join(sent)
-            print(sent, file=f)
+    preprocessed_sent = find_annotations(HUMAN_LABELS)

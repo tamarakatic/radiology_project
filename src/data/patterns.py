@@ -38,7 +38,7 @@ SYNONYMS = {
         "scoliosis": "spine curvature/scoliotic",
         "opacity": "opacities", # remove
         "cardiac shadow": "cardiac contour/cardiomediastinal silhouette",
-        "calcinosis": "calcifi", # remove
+        "calcinosis": "calcifi/ossification", # remove
         "diaphragm": "hemidiaphragm",
         "density": "densities/hyperdense", # remove
         "airspace disease": "airspace consolidation",
